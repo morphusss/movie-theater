@@ -1,0 +1,65 @@
+@mixin flexForWrappers {
+    display: flex;
+    align-items: center;
+}
+
+$widthForWrapper: 25%;
+$centralPosition: center;
+
+
+.header-wrapper{
+    @include flexForWrappers();
+    width: 100%;
+    height: 7vh;
+    justify-content: space-between;
+    background-color: rgba(22,29,47,255);
+
+    .left-wrapper{
+        @include flexForWrappers();
+        width: $widthForWrapper;
+        height: 100%;
+        justify-content: baseline;
+        padding-left: 2%;
+    }
+
+    .central-wrapper{
+        @include flexForWrappers();
+        width: 50%;
+        height: 100%;
+        justify-content: space-evenly;
+
+    }
+
+    .right-wrapper{
+        @include flexForWrappers();
+        width: $widthForWrapper;
+        height: 100%;
+        justify-content: end;
+        padding-right: 2%;
+    }
+}
+
+@media screen and (min-width: 600px){
+    .header-wrapper{
+        width: 95%;
+        height: 8vh;
+        border-radius: 12px;
+        margin-top: 2%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .header-wrapper{
+        width: 5%;
+        height: 95vh;
+        flex-direction: column;
+
+        .left-wrapper, .right-wrapper{
+            justify-content: $centralPosition;
+        }
+
+        .central-wrapper{
+            flex-direction: column;
+        }
+    }
+}
