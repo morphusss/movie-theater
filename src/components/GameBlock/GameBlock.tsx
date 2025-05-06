@@ -1,4 +1,4 @@
-import { GameStat } from "../../types/games.types"
+import { GameStat } from "../../types/types"
 import { FavoriteBlock } from "../FavoriteBlock/FavoriteBlock"
 import MetacriticLogo from "../../assets/svg/metacritic.svg"
 import Dot from "../../assets/svg/dot.svg"
@@ -27,7 +27,7 @@ export function GameCard ({ game }: Props) {
             <section className="game-upper-wrapper">
                 <img src={game.background_image}  className="game-img"/>
                 <section className="favorite-button">
-                    <FavoriteBlock id={game.id}/>
+                    <FavoriteBlock id={game.id} type="game"/>
                 </section>
             </section>
             <section className="game-lower-wrapper">

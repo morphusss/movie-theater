@@ -1,5 +1,6 @@
 import { Header } from "../components/HeaderBlock/Header";
 import { HomeForm } from "../components/HomeForm/HomeForm";
+import "../styles/Pages.scss"
 
 export function Home(){
 

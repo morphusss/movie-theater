@@ -1,6 +1,6 @@
 import notFoundImg from "../assets/notFound.jpeg"
 
-export function notFoundPage() {
+export function NotFoundPage() {
 
     return(
         <>

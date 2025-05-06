@@ -41,3 +41,11 @@ export type GameStat = {
     user_game: null,
 }
 
+export type DevStat = {
+    games: Object[],
+    games_count: number,
+    id: number,
+    image_background: string,
+    name: string,
+    slug: string,
+}

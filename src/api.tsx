@@ -1,25 +1,39 @@
 import axios from 'axios';
-import dotenv from 'dotenv'; 
-import { useState } from 'react';
-import { GameStat } from './types/games.types';
-dotenv.config();
+import { Dispatch, SetStateAction } from 'react';
+import { GameStat, DevStat } from './types/types';
 
-const url = "https://api.themoviedb.org/3/trending/movie/day?language=en-US";
-const options = {
-  method: "GET",
-  headers: {
-      accept: "application/json",
-      Authorization: `Bearer ${import.meta.env.ACCESS_TOKEN}`
-  }
-};
+type GameProps = {
+  gameData: GameStat[];
+  setGameData: Dispatch<SetStateAction<GameStat[]>>;
+}
 
-    const [ test, setTest ] = useState<GameStat[]>([]);
+type DevProps = {
+  devData: DevStat[];
+  setDevData: Dispatch<SetStateAction<DevStat[]>>;
+}
 
-export async function getData() {
+type PageProps = {
+  page: number;
+  page_size: number;
+}
+
+export async function getData(props: GameProps, pageProps: PageProps) {
+  const { gameData, setGameData } = props;
   try{
-      const response = await axios.get(`https://api.rawg.io/api/games?key=${import.meta.env.ACCESS_TOKEN}&page=1&page_size=24`);
-      setTest(response.data.results);
+      const response = await axios.get(`https://api.rawg.io/api/games?key=&page=${pageProps.page}&page_size=${pageProps.page_size}`);
+      setGameData(response.data.results);
+      console.log(response);
   } catch (error) {
       console.log(error);
+  }
+}
+
+export async function getDevs(props: DevProps, pageProps: PageProps) {
+  const { devData, setDevData } = props;
+  try{
+      const response = await axios.get(`https://api.rawg.io/api/developers?key=&page=${pageProps.page}&page_size=${pageProps.page_size}`);
+      setDevData(response.data.results);
+  }catch (error) {
+      console.log(error)
   }
 }

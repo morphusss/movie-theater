@@ -16,10 +16,10 @@ $centralPosition: center;
 
     .left-wrapper{
         @include flexForWrappers();
-        width: $widthForWrapper;
+        width: fit-content;
         height: 100%;
-        justify-content: baseline;
-        padding-left: 2%;
+        justify-content:start;
+        margin-left: 2%;
     }
 
     .central-wrapper{
@@ -32,10 +32,10 @@ $centralPosition: center;
 
     .right-wrapper{
         @include flexForWrappers();
-        width: $widthForWrapper;
+        width: fit-content;
         height: 100%;
         justify-content: end;
-        padding-right: 2%;
+        margin-right: 2%;
     }
 }
 
@@ -50,7 +50,7 @@ $centralPosition: center;
 
 @media screen and (min-width: 1024px) {
     .header-wrapper{
-        width: 5%;
+        width: 6vw;
         height: 95vh;
         flex-direction: column;
 
